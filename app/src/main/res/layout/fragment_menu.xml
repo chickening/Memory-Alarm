@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/button_menu_new_memory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/menu_background"
+            android:text="새 기억 "
+            android:textColor="@android:color/white"
+            tools:layout_width="wrap_content" />
+
+        <Button
+            android:id="@+id/button_menu_list_memory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/menu_background"
+            android:text="기억 리스트"
+            android:textColor="@android:color/white"
+            tools:layout_width="wrap_content" />
+
+        <Button
+            android:id="@+id/button_menu_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/menu_background"
+            android:text="설정"
+            android:textColor="@android:color/white"
+            tools:layout_width="wrap_content" />
+    </LinearLayout>
+</FrameLayout>
