@@ -17,17 +17,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         changeMenu(new MenuFragment());
-        changeContent(new NewMemoryFragment());
     }
     public void changeMenu(Fragment fragment){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.main_menu, fragment);
+        fragmentTransaction.add(R.id.main_menu, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
     public void changeContent(Fragment fragment){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.main_content, fragment);
+        fragmentTransaction.add(R.id.main_content, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
