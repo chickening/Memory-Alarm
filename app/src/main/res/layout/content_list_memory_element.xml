@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textview_content_list_memory_element_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -20,7 +20,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textview_content_list_memory_element_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -30,7 +30,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/textview_content_list_memory_element_remain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"

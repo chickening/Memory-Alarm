@@ -9,8 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -29,31 +32,40 @@ public class ListMemoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_content_list_memory, container, false);
-        final String testsets[] = {"마인크래프트", "치킨", "피자"};
         RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.recylerview_list_memory_list);
-        recyclerView.setAdapter();
+        ArrayList<ListMemoryItem> items = new ArrayList<>();
+        items.add(new ListMemoryItem("밥먹으러가자", Calendar.getInstance());
+        recyclerView.setAdapter(new ListMemoryAdapter(null));
         return view;
     }
 
 }
-public class ListMemoryAdapter extends RecyclerView.Adapter<ListMemoryAdapter.ViewHolder> {
+class ListMemoryItem
+{
+    String title;
+    Calendar start;
+}
+class ListMemoryAdapter extends RecyclerView.Adapter<ListMemoryAdapter.ViewHolder> {
 
-    private ArrayList<String> mData = null ;
+    private ArrayList<ListMemoryItem> mData = null ;
 
     // 아이템 뷰를 저장하는 뷰홀더 클래스.
     public class ViewHolder extends RecyclerView.ViewHolder {
-        //TextView textView1 ;
-
+        TextView title;
+        TextView start;
+        TextView remain;
         ViewHolder(View itemView) {
             super(itemView) ;
 
             // 뷰 객체에 대한 참조. (hold strong reference)
-            //textView1 = itemView.findViewById(R.id.text1) ;
+            title = itemView.findViewById(R.id.textview_content_list_memory_element_title) ;
+            start = itemView.findViewById(R.id.textview_content_list_memory_element_start) ;
+            remain = itemView.findViewById(R.id.textview_content_list_memory_element_remain) ;
         }
     }
 
     // 생성자에서 데이터 리스트 객체를 전달받음.
-    ListMemoryAdapter(ArrayList<String> list) {
+    ListMemoryAdapter(ArrayList<ListMemoryItem> list) {
         mData = list ;
     }
 
@@ -72,8 +84,11 @@ public class ListMemoryAdapter extends RecyclerView.Adapter<ListMemoryAdapter.Vi
     // onBindViewHolder() - position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
     @Override
     public void onBindViewHolder(ListMemoryAdapter.ViewHolder holder, int position) {
-        String text = mData.get(position) ;
-        //holder.textView1.setText(text) ;
+        ListMemoryItem item = mData.get(position) ;
+        holder.title.setText(item.title) ;
+        holder.start.setText(item.start.toString());
+        long remainedHour = (Calendar.getInstance().getTimeInMillis() - item.start.getTimeInMillis()) / 1000 / 3600;
+        holder.remain.setText(remainedHour + " 시간후");
     }
 
     // getItemCount() - 전체 데이터 갯수 리턴.
