@@ -8,12 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import org.joda.time.DateTime;
+
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 
 /**
@@ -22,19 +21,20 @@ import java.util.Date;
 public class ListMemoryFragment extends Fragment {
 
 
-    public ListMemoryFragment() {
+    public ListMemoryFragment()
+    {
         // Required empty public constructor
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_content_list_memory, container, false);
         RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.recylerview_list_memory_list);
         ArrayList<ListMemoryItem> items = new ArrayList<>();
-        items.add(new ListMemoryItem("밥먹으러가자", Calendar.getInstance());
+        items.add(new ListMemoryItem("밥먹으러가자", DateTime.now()));
         recyclerView.setAdapter(new ListMemoryAdapter(null));
         return view;
     }
@@ -43,14 +43,20 @@ public class ListMemoryFragment extends Fragment {
 class ListMemoryItem
 {
     String title;
-    Calendar start;
+    DateTime start;
+    ListMemoryItem(String title, DateTime start)
+    {
+        this.title = title;
+        this.start = start;
+    }
 }
 class ListMemoryAdapter extends RecyclerView.Adapter<ListMemoryAdapter.ViewHolder> {
 
     private ArrayList<ListMemoryItem> mData = null ;
 
     // 아이템 뷰를 저장하는 뷰홀더 클래스.
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder
+    {
         TextView title;
         TextView start;
         TextView remain;
@@ -87,7 +93,7 @@ class ListMemoryAdapter extends RecyclerView.Adapter<ListMemoryAdapter.ViewHolde
         ListMemoryItem item = mData.get(position) ;
         holder.title.setText(item.title) ;
         holder.start.setText(item.start.toString());
-        long remainedHour = (Calendar.getInstance().getTimeInMillis() - item.start.getTimeInMillis()) / 1000 / 3600;
+        int remainedHour = DateTime.now().getHourOfDay() - item.start.getHourOfDay();
         holder.remain.setText(remainedHour + " 시간후");
     }
 
