@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewStub;
 import android.widget.Button;
 
+import net.danlew.android.joda.JodaTimeAndroid;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -17,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         changeMenu(new MenuFragment());
+        changeContent(new NewMemoryFragment());
+        JodaTimeAndroid.init(this);
     }
     public void changeMenu(Fragment fragment){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

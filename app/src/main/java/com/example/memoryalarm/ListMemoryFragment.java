@@ -4,12 +4,12 @@ package com.example.memoryalarm;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
@@ -34,8 +34,10 @@ public class ListMemoryFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_content_list_memory, container, false);
         RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.recylerview_list_memory_list);
         ArrayList<ListMemoryItem> items = new ArrayList<>();
+
         items.add(new ListMemoryItem("밥먹으러가자", DateTime.now()));
-        recyclerView.setAdapter(new ListMemoryAdapter(null));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(new ListMemoryAdapter(items));
         return view;
     }
 

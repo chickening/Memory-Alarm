@@ -21,7 +21,6 @@ public class MenuFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
         mainActivity = (MainActivity)getActivity();
         current_button_id = menuButtonIds[0];
-        mainActivity.changeContent(new NewMemoryFragment());
         View.OnClickListener menuOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
