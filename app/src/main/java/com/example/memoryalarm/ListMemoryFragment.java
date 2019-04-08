@@ -36,6 +36,7 @@ public class ListMemoryFragment extends Fragment {
         ArrayList<ListMemoryItem> items = new ArrayList<>();
 
         items.add(new ListMemoryItem("밥먹으러가자", DateTime.now()));
+        items.add(new ListMemoryItem("치진 먹으러 가자", DateTime.now()));
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(new ListMemoryAdapter(items));
         return view;

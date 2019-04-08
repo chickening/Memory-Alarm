@@ -24,13 +24,13 @@ public class MainActivity extends AppCompatActivity {
     }
     public void changeMenu(Fragment fragment){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.main_menu, fragment);
+        fragmentTransaction.replace(R.id.main_menu, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
     public void changeContent(Fragment fragment){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.main_content, fragment);
+        fragmentTransaction.replace(R.id.main_content, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
